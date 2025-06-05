@@ -8,25 +8,25 @@ This project was developed as part of a learning opportunity with JPMorgan Chase
 - **Nat_Gas.csv**: Input dataset of historical gas prices (with dates).
 
 ## 📊 Features
-- Preprocessing of time-series data.
+# Preprocessing of time-series data.
 - 
 gas_data = pd.read_csv("Nat_Gas.csv")
 gas_data['Dates'] = pd.to_datetime(gas_data['Dates'], format='%m/%d/%y') + MonthEnd(0)
 gas_data.set_index('Dates', inplace=True)
 
-- 
-- One-hot encoding of monthly seasonality.
+ 
+# One-hot encoding of monthly seasonality.
 
 encoder = OneHotEncoder(drop='first', sparse_output=False)
 month_encoded = encoder.fit_transform(gas_data[['Month']])
 month_encoded_df = pd.DataFrame(month_encoded, index=gas_data.index, columns=encoder.get_feature_names_out(['Month']))
 
-- Model training using `sklearn`'s `LinearRegression`.
+# Model training using `sklearn`'s `LinearRegression`.
 
 model = LinearRegression()
 model.fit(X, y)
 
-- Forecast for the next 12 months.
+# Forecast for the next 12 months.
 
 last_date = gas_data.index[-1]
 future_dates = pd.date_range(start=last_date + MonthEnd(1), periods=12, freq='M')
@@ -40,8 +40,8 @@ future_X = pd.concat([future_data[['Year']], future_month_encoded_df], axis=1)
 
 future_data['Predicted_Price'] = model.predict(future_X)
 
-- Price estimate for a custom date (31-Aug-2025).
-- Clear Matplotlib visualizations.
+# Price estimate for a custom date (31-Aug-2025).
+# Clear Matplotlib visualizations.
 plt.plot(...)
 plt.scatter(...)
 plt.annotate(...)
