@@ -17,14 +17,14 @@ This project was developed as part of a learning opportunity with JPMorgan Chase
  
 # One-hot encoding of monthly seasonality.
 
-    encoder = OneHotEncoder(drop='first', sparse_output=False)
-    month_encoded = encoder.fit_transform(gas_data[['Month']])
-    month_encoded_df = pd.DataFrame(month_encoded, index=gas_data.index, columns=encoder.get_feature_names_out(['Month']))
+     encoder = OneHotEncoder(drop='first', sparse_output=False)
+     month_encoded = encoder.fit_transform(gas_data[['Month']])
+     month_encoded_df = pd.DataFrame(month_encoded, index=gas_data.index, columns=encoder.get_feature_names_out(['Month']))
 
 # Model training using `sklearn`'s `LinearRegression`.
 
-    model = LinearRegression()
-    model.fit(X, y)
+     model = LinearRegression()
+     model.fit(X, y)
 
 # Forecast for the next 12 months.
 
@@ -42,9 +42,9 @@ This project was developed as part of a learning opportunity with JPMorgan Chase
 
 # Price estimate for a custom date (31-Aug-2025).
 # Clear Matplotlib visualizations.
-    plt.plot(...)
-    plt.scatter(...)
-    plt.annotate(...)
+     plt.plot(...)
+     plt.scatter(...)
+     plt.annotate(...)
 
 
 ## 📦 Requirements
