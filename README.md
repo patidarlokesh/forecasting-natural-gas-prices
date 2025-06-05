@@ -10,9 +10,9 @@ This project was developed as part of a learning opportunity with JPMorgan Chase
 ## 📊 Features
 # Preprocessing of time-series data.
  
-gas_data = pd.read_csv("Nat_Gas.csv")
-gas_data['Dates'] = pd.to_datetime(gas_data['Dates'], format='%m/%d/%y') + MonthEnd(0)
-gas_data.set_index('Dates', inplace=True)
+      gas_data = pd.read_csv("Nat_Gas.csv")
+      gas_data['Dates'] = pd.to_datetime(gas_data['Dates'], format='%m/%d/%y') + MonthEnd(0)
+      gas_data.set_index('Dates', inplace=True)
 
  
 # One-hot encoding of monthly seasonality.
